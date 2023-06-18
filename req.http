@@ -1,0 +1,12 @@
+POST http://localhost:3000/login
+content-type: application/json
+
+{
+    "email": "dudu@games.com",
+    "password": "dudutatu"
+}
+
+###
+
+GET http://localhost:3000/create-pin
+content-type: application/json

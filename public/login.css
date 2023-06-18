@@ -1,0 +1,31 @@
+body {
+    background-color: black;
+    display: flex;
+    height: 100vh;
+    margin: 0;
+    justify-content: center;
+    align-items: center;
+}
+main {
+    background-color: white;
+    width: 25vw;
+    height: 50vh;
+    text-align: center;
+    background-color: #191414;
+    color: white;
+}
+.input {
+    margin: 5px;
+    border: solid 1px;
+    border-radius: 50px;
+    background-color: cadetblue;
+    width: 75%;
+}
+#send {
+    width: 65%;
+    height: 9%;
+    margin-top: 20px;
+    border-radius: 50px;
+    border: solid 1px;
+    background-color: #1ed750;
+}
