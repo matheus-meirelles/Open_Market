@@ -10,12 +10,19 @@
 <body>
     
     <main>
-        <h1 class="login">Login</h1>
-        <input type="email" class="input" id="email">
-        <br>
-        <input type="password" class="input" id="password">
-        <br>
-        <button id="send" onclick="sendInfo()">Send</button>
+        <div id="loginText">
+            <h1 class="login">Login</h1>
+        </div>
+        
+        <div id="inputArea">
+            <input type="email" class="input" id="email" placeholder="Email">
+            <input type="password" class="input" id="password" placeholder="Password">
+        </div>
+        <div id="redirecters">
+            <p>Don't have an account yet?, <a href="http://localhost:3000/sign-up">Sign Up</a></p>
+            <button id="send" onclick="sendInfo()">Send</button>
+        </div>
+        
     </main>
 
     <script src="./login.js"></script>

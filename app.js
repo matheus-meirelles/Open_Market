@@ -89,5 +89,10 @@ app.post("/check-pin", (req, res) => {
     }
 })
 
+app.get("/sign-up", (req, res) => {
+    const filePath = path.join( __dirname, 'public', 'sign-up.html')
+    res.sendFile(filePath)
+})
+
 
 app.listen(port, () => {console.log(`App is running in port: ${port}`)})

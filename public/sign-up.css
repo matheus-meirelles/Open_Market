@@ -1,47 +1,46 @@
 @import url('https://fonts.googleapis.com/css2?family=ABeeZee&display=swap');
 body {
     background-color: #C2C2C2;
-    display: flex;
-    height: 100vh;
-    margin: 0;
-    justify-content: center;
-    align-items: center;
     font-family: 'ABeeZee';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
 }
 main {
-    display: grid;
-    grid-template-rows: 100px 180px 150px;
-    width: 350px;
-    height: 450px;
-    text-align: center;
-    background-color: #1b1e2b;
+    background-color: #1B1E2B;
     color: white;
+    display: grid;
+    height: 450px;
+    width: 350px;
+    grid-template-rows: 100px 210px 150px;
+    text-align: center;
     border-radius: 35px;
 }
-#inputArea{
+#signText {
+    display: flex;
+    /*background-color: green;*/
+    align-items: end;
+    justify-content: center;
+}
+#inputs {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     align-items: center;
-    justify-content: space-evenly;
-    padding-top: 20px;
+    /*background-color: black;*/
 }
-#loginText{
-    display: flex;
-    justify-content: center;
-    align-items: self-end;
-    margin-top: 120px;
-}
-.input {
+input {
     height: 45px;
-    background-color: inherit;
-    border: solid 4px black;
-    border-radius: 30px;
     width: 70%;
+    border-radius: 30px;
+    border: solid 4px #000;
+    background: inherit;
     font-size: large;
-    color: white;
     padding-left: 20px;
-    margin: 10px;
+    color: #FFF;
 }
+
 #send {
     height: 40px;
     width: 75%;
@@ -52,6 +51,6 @@ main {
     font-size: x-large;
     margin-top: 15px;
 }
-a{
+a {
     color: #FF4E4E;
 }
