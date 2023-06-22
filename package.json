@@ -10,9 +10,10 @@
   "license": "MIT",
   "devDependencies": {
     "express": "^4.18.2",
-    "nodemon": "^2.0.21"
+    "nodemon": "^1.14.9"
   },
   "dependencies": {
+    "deep-email-validator": "^0.1.21",
     "nodemailer": "^6.9.1"
   }
 }
