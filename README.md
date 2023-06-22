@@ -1,2 +1,2 @@
 # Open_Market
-A product/servicee finder similar to social medias
+A product/service finder similar to social medias
