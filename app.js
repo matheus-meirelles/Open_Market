@@ -5,12 +5,12 @@ const query = require("./db")
 const send = require("./pinSender")
 const path = require('path')
 const port = 3000
-const validator = require("deep-email-validator")
+const {validate} = require("deep-email-validator")
 const usrpin = []
 
 app.use(express.json())
 app.use(express.static('public'))
-
+    
 app.get("/login", (req, res) => {
     const filePath = path.join(__dirname, 'public', 'login.html')
      res.sendFile(filePath)
@@ -94,6 +94,24 @@ app.get("/sign-up", (req, res) => {
     const filePath = path.join( __dirname, 'public', 'sign-up.html')
     res.sendFile(filePath)
 })
-app.post("/emailValidator")
+app.post("/emailValidator", (req, res) => {
+    const {email} = req.body
+    //IN PROGRESS...
+    validate(email)
+    .then((results) => {
+        if (results.valid) {
+            res.status(200).json({valid: true})
+            console.log(results)
+        }
+        else {
+            res.status(400).json({valid: false})
+            console.log(results)
+        }
+    })
+    .catch((error) => {
+        console.error("Email validation error", error)
+        res.status(500).send("500 Internal server error")
+    })
+})
 
 app.listen(port, () => {console.log(`App is running in port: ${port}`)})
