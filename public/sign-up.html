@@ -12,13 +12,13 @@
             <h1>Sign Up</h1>
         </div>
         <div id="inputs">
-            <input type="email" placeholder="Email" id="email">
-            <input type="password" placeholder="Password" id="password">
-            <input type="text" id="username" placeholder="Username">
+            <input type="email" placeholder="Email, e.g. example@example.com" id="email">
+            <input type="password" placeholder="Password, at least 1 special chracter (@, #, !, $), 1 uppercase letter and 1 digit" id="password">
+            <input type="text" id="username" placeholder="Username, accepts only letters and - and _ e.g. john-doe">
         </div>
         <div id="redirecters">
             <p>Already have an account? <a href="http://localhost:3000/login">Login</a></p>
-            <button id="send">Send</button>
+            <button id="send" onclick="validInfo()">Send</button>
         </div>
     </main>
     <script src="sign-up.js"></script>
