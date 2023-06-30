@@ -16,7 +16,7 @@ app.get("/login", (req, res) => {
      res.sendFile(filePath)
 })
 
-app.post("/login", (req, res) => {
+app.post("/checkUser", (req, res) => {
     query.checkUser(req, res, (error, results, id) => {
         if (error) {
             console.error(error)
@@ -49,7 +49,7 @@ app.post("/login", (req, res) => {
             
         }
         else {
-            return res.status(404).send("404 user not found")
+            return res.status(404).json({error: 404})
         }
         
     })
@@ -83,6 +83,7 @@ app.post("/check-pin", (req, res) => {
 
     if (sentPin == usrpin[0]) {
         console.log("SUCCESS!")
+        usrpin.shift()
         res.status(200).send({success: true})
     }
     else {
@@ -96,7 +97,6 @@ app.get("/sign-up", (req, res) => {
 })
 app.post("/emailValidator", (req, res) => {
     const {email} = req.body
-    //IN PROGRESS...
     validate(email)
     .then((results) => {
         if (results.valid) {

@@ -11,19 +11,25 @@ const pool = new Pool({
 const checkUser = (req, res, exist) => {
 
     const {email, password} = req.body
-    pool.query("SELECT * FROM login WHERE email = $1 AND password = $2", [email, password], (error, results) => {
+
+    if (password) {
+        pool.query("SELECT * FROM login WHERE email = $1 AND password = $2", [email, password], (error, results) => {
         if (error) {
-            exist(error, null, null)
+            return exist(error, null, null)
+        }
+        if (results.rows.length > 0) {
+            return exist(null, true, results.rows[0].id)
         }
         else {
-            if (results.rows.length > 0) {
-                exist(null, true, results.rows[0].id)
-            }
-            else {
-                exist(null, false, null)
-            }
+            return exist(null, false, null)
         }
-    })
+        })
+    }
+    pool.query("SELECT * FROM login WHERE email = $1", [email], (error, results) => {
+        if (error) return exist(error, null, null)
+        if (results.rows.length > 0) return exist(null, true, results.rows[0].id)
+        exist(null, false, null)
+    })   
 }
 const createUser = (req, res) => {
     const {email, password, username} = req.body

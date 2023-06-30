@@ -43,14 +43,27 @@ function checkEmail(email) {
             
         }
         else {
-            console.log("User not found", res)
+            console.log("Invalid Info", res)
         }
     })
     .then((data) => {
         if (valid) {
             alert("Valid email", data)
-            window.location.href = "http://localhost:3000/2fa"
+            alreadyExists(email)
         }
         
+    })
+}
+async function alreadyExists(email) {
+    await fetch("/checkUser", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({email})
+    })
+    .then((res) => {
+        if (res.ok) return console.log(`user already exists ${res}`)
+        else console.log(res); window.location.href = "http://localhost:3000/2fa"
     })
 }
